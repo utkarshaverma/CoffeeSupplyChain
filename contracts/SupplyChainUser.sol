@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.16;
 import "./SupplyChainStorage.sol";
 import "./Ownable.sol";
 
@@ -18,7 +18,7 @@ contract SupplyChainUser is Ownable
     
      /* Create/Update User */
 
-    function updateUser(string _name, string _contactNo, string _role, bool _isActive,string _profileHash) public returns(bool)
+    function updateUser(string memory _name, string memory _contactNo, string memory _role, bool _isActive,string memory _profileHash) public returns(bool)
     {
         require(msg.sender != address(0));
         
@@ -33,7 +33,7 @@ contract SupplyChainUser is Ownable
     }
     
     /* Create/Update User For Admin  */
-    function updateUserForAdmin(address _userAddress, string _name, string _contactNo, string _role, bool _isActive,string _profileHash) public onlyOwner returns(bool)
+    function updateUserForAdmin(address _userAddress, string memory _name, string memory _contactNo, string memory _role, bool _isActive,string memory _profileHash) public onlyOwner returns(bool)
     {
         require(_userAddress != address(0));
         
@@ -48,7 +48,7 @@ contract SupplyChainUser is Ownable
     }
     
     /* get User */
-    function getUser(address _userAddress) public view returns(string name, string contactNo, string role, bool isActive , string profileHash){
+    function getUser(address _userAddress) public returns(string memory name, string memory contactNo, string memory role, bool isActive , string memory profileHash){
         require(_userAddress != address(0));
         
         /*Getting value from struct*/
